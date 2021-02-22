@@ -13,5 +13,9 @@ body {
 
 #image-container {
   margin-top: 50px;
-  border: 20px solid #76ff76;
+}
+
+#image-root {
+  border: 50px solid black;
+  cursor: zoom-in;
 }
