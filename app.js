@@ -57,8 +57,16 @@ app.get("/getAlbums", async (req, res) => {
 
 app.get("/getImages", async (req, res) => {
   log.info("Loading images");
-  const result = await googlePhotos.getImagesFromAlbum(req.user.token);
-  res.send(result);
+  try {
+    const result = await googlePhotos.getImagesFromAlbum(req.user.token);
+    res.send(result);
+  } catch (e) {
+    res.status(500).send({ message: e.message });
+  }
+});
+
+app.use(function (err, req, res, next) {
+  res.status(500).send({ message: err });
 });
 
 // Start the server

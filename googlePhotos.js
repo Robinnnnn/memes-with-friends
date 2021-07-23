@@ -4,6 +4,7 @@ const config = require("./config");
 
 const { log } = require("./logger");
 
+// https://developers.google.com/photos/library/reference/rest/v1/albums/list
 async function getAlbums(authToken) {
   try {
     const result = await request
@@ -24,6 +25,7 @@ async function getAlbums(authToken) {
   }
 }
 
+// https://developers.google.com/photos/library/guides/list
 async function getImagesFromAlbum(authToken) {
   const urls = [];
 
